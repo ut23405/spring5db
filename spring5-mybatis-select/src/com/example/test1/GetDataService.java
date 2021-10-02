@@ -9,13 +9,19 @@ public class GetDataService {
 	}
 
 	public void getAllSyain() {
-		List<SyainEntity> list = sr1.findAll();
-		for (SyainEntity s1 : list) {
+		List<SyainEntity> list1 = sr1.findAll();
+		for (SyainEntity s1 : list1) {
 			System.out.println(s1.getId() + s1.getName() + s1.getRomaji());
 		}
 	}
 	public void getOneSyain(int num1) {
 		SyainEntity s2 = sr1.findOne(num1);
 		System.out.println("ID：" + num1 + s2.getName());
+	}
+	public void getListSyain(List<Integer> syain) {
+		List<SyainEntity> list2 = sr1.findList(syain);
+		for (SyainEntity s2 : list2) {
+			System.out.println(s2.getId() + s2.getName() + s2.getRomaji());
+		}
 	}
 }

@@ -15,5 +15,15 @@
 		from 
 		  syain 
 		where id = #{id}
+	</select>
+	<select id="findList" resultType="com.example.test1.SyainEntity">
+		select 
+		  id,name,romaji 
+		from 
+		  syain 
+		where id in
+		<foreach item="id" collection="syain" open="(" separator="," close=")">
+             #{id}
+        </foreach>
 	</select>	
 </mapper>

@@ -1,11 +1,11 @@
 package com.example.test1;
 
 public class SyainEntity {
-	String id;
+	Integer id;
 	String name;
 	String romaji;
 	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 	public String getName() {
