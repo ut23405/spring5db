@@ -17,6 +17,8 @@ public class MainController {
 			gdservice.TransactionTest();
 		} catch(DuplicateKeyException e) {
 		    System.out.println(e.getMessage());
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
 		}
 		context.close();
 	}
