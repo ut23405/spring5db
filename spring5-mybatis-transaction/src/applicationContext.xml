@@ -6,7 +6,9 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -25,12 +27,10 @@
 	<bean id="SyainRepository"
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
-			value="com.example.test1.SyainRepository" />
+			value="com.example.test1.repository.SyainRepository" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="GetData" class="com.example.test1.GetDataService">
-		<constructor-arg ref="SyainRepository" />
-	</bean>
+	<context:component-scan base-package="com.example.test1" />
 	
 	<tx:annotation-driven />
     <bean id="transactionManager"
@@ -38,5 +38,4 @@
         <property name="dataSource" ref="dataSource" />
         <property name="rollbackOnCommitFailure" value="true" />
     </bean>
-
 </beans>

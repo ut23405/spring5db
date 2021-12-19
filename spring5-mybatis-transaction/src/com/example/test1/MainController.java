@@ -4,14 +4,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 
+import com.example.test1.service.SyainService;
+
 @Controller
 public class MainController {
 	public static void main(String[] args) {
-		
 		ClassPathXmlApplicationContext  context =
 			new ClassPathXmlApplicationContext("applicationContext.xml");
-
-		GetDataService gdservice = (GetDataService) context.getBean("GetData");
+		SyainService gdservice = context.getBean(SyainService.class);
 		
 		try {
 			gdservice.TransactionTest();
