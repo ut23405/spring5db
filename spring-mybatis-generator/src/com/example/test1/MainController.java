@@ -10,6 +10,7 @@ public class MainController {
 			new ClassPathXmlApplicationContext("applicationContext.xml");
 		SyainService syainService = context.getBean(SyainService.class);
 		syainService.getOneSyain(2);
+		syainService.updateSyain();
 		context.close();
 	}
 }
